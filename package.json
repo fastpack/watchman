@@ -1,0 +1,26 @@
+{
+  "name": "watchman",
+  "version": "4.9.0",
+  "description": "A file watching service",
+  "license": "Apache-2.0",
+  "esy": {
+    "buildsInSource": true,
+    "build": [
+      "bash autogen.sh",
+      "./configure --prefix #{self.install} --exec-prefix #{self.install} --without-ruby",
+      "make -j"
+    ],
+    "install": [
+      "make install"
+    ],
+    "exportedEnv": {
+      "PYTHONPATH": {
+        "val": "#{self.lib / 'python2.7' / 'site-packages' : $PYTHONPATH}",
+        "scope": "global"
+      }
+    }
+  },
+  "dependencies": {
+    "cpython": "fastpack/cpython#2.7.14-esy"
+  }
+}

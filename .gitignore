@@ -80,3 +80,4 @@ libtool
 ltmain.sh
 cppclient/watchmanclient.pc
 /website/.jekyll-metadata
+node_modules
